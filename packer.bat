@@ -1,0 +1,1 @@
+Pyinstaller --add-data "launcher.ui;." batProducer.py -w -n PyLauncherV0.1 -F

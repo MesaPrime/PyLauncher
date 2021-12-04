@@ -8,7 +8,7 @@ class LAUNCHER(QWidget):
     def __init__(self):
         super(LAUNCHER, self).__init__()
         self.app = QApplication(sys.argv)
-        self.ui = PyQt5.uic.loadUi(r'E:\Anaconda\envs\launcher\main\launcher.ui')
+        self.ui = PyQt5.uic.loadUi(r'launcher.ui')
         self.acceptDrops()
 
         self.ui.pushButton.clicked.connect(self.getLauncher)
