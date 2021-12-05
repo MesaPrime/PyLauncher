@@ -6,13 +6,12 @@
 >将.ui文件放置于.py或.exe同目录下
  ### 1.脚本启动  
 >python batProducer.py
-### 2.bat启动  
+ ### 2.bat启动  
 >双击 batProducer.py  
-### 3.exe启动  
+ ### 3.exe启动  
 >双击 ./dist/batProducer.exe
->下载 realease 中的batProducer.exe 双击启动
-
-##二.使用
+>下载 realease 中的batProducer.exe 双击启动  
+ ##二.使用
 >将文件拖入文本编辑区域  
 >可拖入多个  
 > 暂时只支持.py文件
