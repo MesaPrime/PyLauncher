@@ -12,6 +12,7 @@ class LAUNCHER(QWidget):
         self.acceptDrops()
 
         self.ui.pushButton.clicked.connect(self.getLauncher)
+        self.ui.pushButton_2.clicked.connect(self.clear)
         self.ui.show()
         self.app.exec()
 
@@ -38,6 +39,9 @@ pause'''.format(pyFullName)
 ws.run "{} /start",0'''.format(batFullName)
                 with open(vbeFullName, 'w') as vb:
                     vb.write(vbData)
+
+    def clear(self):
+        self.ui.textEdit.setText('')
 
 
 app = QApplication(sys.argv)
