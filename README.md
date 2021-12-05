@@ -2,6 +2,7 @@
  ## 一.启动  
  ### 0.前置
 >命令行启动需要安装PYQT5  
+> `pip install -r requirements.txt`  
 >将.ui文件放置于.py或.exe同目录下
  ### 1.脚本启动  
 >python batProducer.py
