@@ -24,18 +24,30 @@ class LAUNCHER(QWidget):
             if item.endswith('.py'):
                 filePath = item[:-3]
                 pyFullName = filePath + '.py'
-
-                # write .bar
-                batFullName = filePath + '.bat'
                 batData = '''@echo off
 python {}
 pause'''.format(pyFullName)
+
+                if '/envs/' in item:
+                    workPathList = item.split('/')
+                    envIndex = workPathList.index('envs') + 1
+                    envName = workPathList[envIndex]
+                    workPath = item.rsplit('/', 1)[0]
+                    pyFileName = item.rsplit('/', 1)[1]
+
+                    batData = r'''call C:\Anaconda\Scripts\activate.bat C:\Anaconda\envs\{}
+cd /d {}
+python {}
+pause'''.format(envName, workPath, pyFileName)
+
+                batFullName = filePath + '.bat'
+
                 with open(batFullName, 'w') as file:
                     file.write(batData)
-
-                # write .vbe
+#
+#                 # write .vbe
                 vbeFullName = filePath + '.vbe'
-                vbData = '''set ws=wscript.createobject("wscript.shell") 
+                vbData = '''set ws=wscript.createobject("wscript.shell")
 ws.run "{} /start",0'''.format(batFullName)
                 with open(vbeFullName, 'w') as vb:
                     vb.write(vbData)
