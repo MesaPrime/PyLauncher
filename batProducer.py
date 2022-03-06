@@ -34,18 +34,19 @@ pause'''.format(pyFullName)
                     envName = workPathList[envIndex]
                     workPath = item.rsplit('/', 1)[0]
                     pyFileName = item.rsplit('/', 1)[1]
+                    disk = item[0]
 
-                    batData = r'''call C:\Anaconda\Scripts\activate.bat C:\Anaconda\envs\{}
+                    batData = r'''call {}:\Anaconda\Scripts\activate.bat {}:\Anaconda\envs\{}
 cd /d {}
 python {}
-pause'''.format(envName, workPath, pyFileName)
+pause'''.format(disk, disk, envName, workPath, pyFileName)
 
                 batFullName = filePath + '.bat'
 
                 with open(batFullName, 'w') as file:
                     file.write(batData)
-#
-#                 # write .vbe
+                #
+                #                 # write .vbe
                 vbeFullName = filePath + '.vbe'
                 vbData = '''set ws=wscript.createobject("wscript.shell")
 ws.run "{} /start",0'''.format(batFullName)

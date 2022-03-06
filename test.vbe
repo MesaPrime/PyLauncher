@@ -1,0 +1,2 @@
+set ws=wscript.createobject("wscript.shell")
+ws.run "E:/Anaconda/envs/launcher/main/PyLauncher/test.bat /start",0
